@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "slackbot-juniper-mist"
+version = "0.1.0"
+description = "Slackbot to interact with Juniper Mist"
+authors = ["Calvin Remsburg <cremsburg.dev@gmail.com>"]
+license = "Apache 2.0"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+slack-bolt = "^1.14.0"
+requests = "^2.28.1"
+python-dotenv = "^0.20.0"
+Jinja2 = "^3.1.2"
+pydantic = "^1.9.1"
+
+[tool.poetry.dev-dependencies]
+black = "^22.6.0"
+flake8 = "^4.0.1"
+flake8-black = "^0.3.3"
+invoke = "^1.7.1"
+yamllint = "^1.26.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,25 @@
+*Mist Alerts*
+
+_Critical Issues_
+{% for each in data.results %}
+{% if each.severity == "critical" %}
+{# Rouge AP #}
+{% if each.type == "rogue_ap" %}
+:white_small_square: *Rogue AP* `{{ each.hostnames | join(' ') }}` is broadcasting _{{ each.ssids | join(', ') }}_
+{% endif %}
+{# Rouge Client #}
+{% if each.type == "rogue_client" %}
+:white_small_square: *Rouge Client*: `{{ each.hostnames | join(' ')  }}` MAC addresses _{{ each.macs | join(', ') }}_
+{% endif %}
+{% endif %}
+{% endfor %}
+
+_Warning Issues_
+{% for each in data.results %}
+{% if each.severity == "warn" %}
+{# Chassis PoE #}
+{% if each.type == "sw_alarm_chassis_poe" %}
+:white_small_square: POE Issue: `{{ each.reasons | join(' ') }}`
+{% endif %}
+{% endif %}
+{% endfor %}

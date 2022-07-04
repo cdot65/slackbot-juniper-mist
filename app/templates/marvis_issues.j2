@@ -1,0 +1,84 @@
+
+*Marvis Issues*
+
+_Client Connectivity Issues_
+{# WLAN #}
+{% if data.connectivity.auth_failure.total > 0 %}
+:white_small_square: Authorization Failures: {{ data.connectivity.auth_failure.total }}
+{% endif %}
+{# DHCP #}
+{% if data.connectivity.dhcp_failure.total > 0 %}
+:white_small_square: DHCP Failures: {{ data.connectivity.dhcp_failure.total }}
+{% endif %}
+{# ARP #}
+{% if data.connectivity.arp_failure.total > 0 %}
+:white_small_square: Client Gateway ARP Failures: {{ data.connectivity.arp_failure.total }}
+{% endif %}
+{# DNS #}
+{% if data.connectivity.dns_failure.total > 0 %}
+:white_small_square: Client DNS Failures: {{ data.connectivity.dns_failure.total }}
+{% endif %}
+
+_AP Issues_
+{# AP disconnects #}
+{% if data.ap.ap_disconnect.ap > 0 %}
+:white_small_square: AP disconnects: {{ data.ap.ap_disconnect.ap }}
+{% endif %}
+{# Ethernet errors #}
+{% if data.ap.ethernet_error.ap > 0 %}
+:white_small_square: Ethernet errors: {{ data.ap.ethernet_error.ap }}
+{% endif %}
+{# Health check #}
+{% if data.ap.health_check.ap > 0 %}
+:white_small_square: Health Check: {{ data.ap.health_check.ap }}
+{% endif %}
+{# Capacity #}
+{% if data.ap.insufficient_capacity.ap > 0 %}
+:white_small_square: Insufficient Capacity: {{ data.ap.insufficient_capacity.ap }}
+{% endif %}
+{# Coverage #}
+{% if data.ap.insufficient_coverage.ap > 0 %}
+:white_small_square: Insufficient Coverage: {{ data.ap.insufficient_coverage.ap }}
+{% endif %}
+
+_Switch Issues_
+{# Bad Cables #}
+{% if data.switch.bad_cable.interface > 0 %}
+:white_small_square: Bad Cables: {{ data.switch.bad_cable.interface }}
+{% endif %}
+{# Missing VLAN #}
+{% if data.switch.missing_vlan.switch > 0 %}
+:white_small_square: Missing VLAN: {{ data.switch.missing_vlan.switch }}
+{% endif %}
+{# Negotiation Mismatch #}
+{% if data.switch.negotiation_mismatch.interface > 0 %}
+:white_small_square: Negotiation Mismatch: {{ data.switch.negotiation_mismatch.interface }}
+{% endif %}
+{# Port Flapping #}
+{% if data.switch.port_flap.interface > 0 %}
+:white_small_square: Port Flapping: {{ data.switch.port_flap.interface }}
+{% endif %}
+{# STP loop #}
+{% if data.switch.stp_loop.site > 0 %}
+:white_small_square: Spanning Tree Loop: {{ data.switch.stp_loop.site }}
+{% endif %}
+
+_Gateway Issues_
+{# Bad WAN links #}
+{% if data.gateway.bad_wan_link.interface > 0 %}
+:white_small_square: Bad WAN links: {{ data.gateway.bad_wan_link.interface }}
+{% endif %}
+{# Bad Cables #}
+{% if data.gateway.bad_cable.interface > 0 %}
+:white_small_square: Bad cable: {{ data.gateway.bad_cable.interface }}
+{% endif %}
+{# VPN path down #}
+{% if data.gateway.vpn_path_down.interface > 0 %}
+:white_small_square: VPN path down: {{ data.gateway.vpn_path_down.interface }}
+{% endif %}
+
+_Layer 1 Issues_
+{# DNS #}
+{% if data.layer_1.bad_cable.ap > 0 %}
+:white_small_square: Bad Cable: {{ data.layer_1.bad_cable.ap }}
+{% endif %}

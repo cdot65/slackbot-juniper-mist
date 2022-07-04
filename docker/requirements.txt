@@ -1,0 +1,5 @@
+slack-bolt
+python-dotenv
+requests
+jinja2
+pydantic

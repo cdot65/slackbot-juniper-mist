@@ -1,0 +1,7 @@
+*Mist Sites*
+
+{% for each in data %}
+{% if each.name is defined %}
+:white_small_square: _{{ each.name }}_
+{% endif %}    
+{%- endfor %}
