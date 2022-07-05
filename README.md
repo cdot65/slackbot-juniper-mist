@@ -6,6 +6,8 @@ Example Slack bot for interfacing with your Juniper Mist environment
 
 The repository hopes to act as a guide for building bots with Slack Bolt SDK. In our example, we will be building a Python-based Slack bot that will serve as an interface to Juniper Mist.
 
+This project is structured to be more of an educational guide rather than a production-ready piece of software.
+
 ---
 
 ## Documentation Site
@@ -25,6 +27,8 @@ Selecting an option from our modal will reveal a new view.
 ![image](site/content/assets/images/site_name.jpg)
 
 Handling the interaction with Mist's REST API, the Slack bot will return the result in an easy-to-read format.
+
+![image](site/content/assets/images/bad_client.jpg)
 
 ![image](site/content/assets/images/report.jpg)
 
