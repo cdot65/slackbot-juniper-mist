@@ -247,25 +247,25 @@ class MarvisIssues(BaseModel):
 class Results(BaseModel):
     """Helping structure an object to hold alerts from a site."""
 
-    severity: str
-    last_seen: int
     aps: Optional[List[str]] = []
+    bssids: Optional[List[str]] = []
+    client_count: Optional[int] = 0
     count: int
+    group: str
     hostnames: List[str]
-    type: str
+    id: str
+    incident_count: Optional[int] = 0
+    last_seen: int
+    macs: Optional[List[str]] = []
+    org_id: str
+    reasons: Optional[List[str]] = []
+    servers: Optional[List[str]] = []
+    severity: str
+    site_id: str
+    switches: Optional[List[str]] = []
     ssids: Optional[List[str]] = []
     timestamp: int
-    bssids: Optional[List[str]] = []
-    org_id: str
-    site_id: str
-    id: str
-    group: str
-    macs: Optional[List[str]] = []
-    incident_count: Optional[int] = 0
-    servers: Optional[List[str]] = []
-    client_count: Optional[int] = 0
-    reasons: Optional[List[str]] = []
-    switches: Optional[List[str]] = []
+    type: str
     vlans: Optional[List[int]] = []
 
 
