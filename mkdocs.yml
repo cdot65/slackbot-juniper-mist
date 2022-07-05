@@ -56,5 +56,5 @@ plugins:
   #     redirect_maps:
   #       "docs/juniper-vlabs.md": "docs/lab-environment/juniper-vlabs.md"
   #       "docs/locally.md": "docs/lab-environment/local.md"
-  - macros:
-      include_dir: "site/content/docs/include"
+  # - macros:
+  #     include_dir: "site/content/docs/include"
