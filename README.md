@@ -36,7 +36,7 @@ Handling the interaction with Mist's REST API, the Slack bot will return the res
 
 *TBD, WORK IN PROGRESS*
 
-[![YouTube](https://img.youtube.com/vi/nOKj8fnviRk/0.jpg)](https://www.youtube.com/watch?v=nOKj8fnviRk)
+[![YouTube](site/content/assets/images/youtube100.jpg)](https://www.youtube.com/watch?v=nOKj8fnviRk)
 
 ## Feedback
 
