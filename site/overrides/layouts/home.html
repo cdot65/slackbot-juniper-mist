@@ -347,14 +347,11 @@
   <div class="md-grid md-typeset">
     <div class="md-main__inner">
       <div>
-        <h1>Automate an MPLS network with Python</h1>
+        <h1>Build a Juniper Mist Slack bot</h1>
         <p>
-          Leverage Juniper's PyEZ to build, push, and validate an
-          <span class="em">MPLS</span> network using
-          <a href="https://en.wikipedia.org/wiki/Infrastructure_as_code"
-            >Infrastructure-As-Code</a
-          >
-          principles
+          Leverage Slack's <span class="em">Bolt SDK</span> to build a bot to interact with
+          the <a href="https://api-class.mist.com/reference/rest/">REST API</a> of 
+          <a href="https://www.juniper.net/us/en/products/mist-ai.html">Juniper Mist</a>.
         </p>
         <a
           href="docs/overview/"
@@ -402,6 +399,7 @@
         <div class="first-column">
           <h3>Video Documentation</h3>
           <p>
+            <span class="em">Still in production, please standby for an updated link</span>
             Do you prefer learning through <span class="em">YouTube</span>? Well I sure do. So I've included
             a companion guide for these docs. Sometimes the human element is needed to explain context.
           </p>
@@ -412,7 +410,7 @@
                 <a href="https://youtu.be/nOKj8fnviRk?t=200">Live Demo</a>
               </li>
               <li>
-                <a href="https://youtu.be/nOKj8fnviRk?t=2350">Network Design Discussion</a>
+                <a href="https://youtu.be/nOKj8fnviRk?t=2350">Project Design Discussion</a>
               </li>
               <li>
                 <a href="https://youtu.be/nOKj8fnviRk?t=2842">Code Deep Dive</a>
@@ -422,7 +420,7 @@
         </div>
         <div class="second-column">
           <div class="image-wrapper">
-            <iframe
+            {% comment %} <iframe
               width="598"
               height="336"
               src="https://www.youtube.com/embed/nOKj8fnviRk"
@@ -430,7 +428,12 @@
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
-            ></iframe>
+            ></iframe> {% endcomment %}
+            <img
+              src="{{config.site_url}}assets/images/youtube100.jpg"
+              alt="topology"
+              draggable="false"
+            />
           </div>
         </div>
       </div>
@@ -440,7 +443,7 @@
         <!-- Collection Code -->
         <div class="responsive-grid">
 
-          <!-- Automation -->
+          <!-- Slack Bolt -->
           <a class="card-wrapper" href="docs/automation/overview/">
             <div class="card">
               <div class="logo">
@@ -449,13 +452,13 @@
                 </span>
               </div>
               <div class="card-content">
-                <h5>Automation</h5>
-                <p>Overview of the automation used within this project.</p>
+                <h5>Slack Bolt</h5>
+                <p>Overview of the SDK used within this project.</p>
               </div>
             </div>
           </a>
 
-          <!-- Network -->
+          <!-- Mist -->
           <a class="card-wrapper" href="docs/network/overview/">
             <div class="card">
               <div class="logo">
@@ -464,13 +467,13 @@
                 </span>
               </div>
               <div class="card-content">
-                <h5>Network</h5>
-                <p>MPLS, routing, and interface configurations.</p>
+                <h5>Juniper Mist API</h5>
+                <p>Examples of working with the Juniper Mist REST API.</p>
               </div>
             </div>
           </a>
 
-          <!-- Labs -->
+          <!-- Container -->
           <a class="card-wrapper" href="docs/lab-environment/local/">
             <div class="card">
               <div class="logo">
@@ -479,8 +482,8 @@
                 </span>
               </div>
               <div class="card-content">
-                <h5>Labs</h5>
-                <p>Getting up and running with EVE-NG.</p>
+                <h5>Docker container</h5>
+                <p>Getting up and running with Docker.</p>
               </div>
             </div>
           </a>
@@ -489,177 +492,6 @@
       </div>
     </div>
 
-    <div class="section follow">
-      <div class="component-wrapper">
-        <div class="first-column">
-          <h3>Get started with automation</h3>
-          <p>
-            Run a <span class="em">single command</span> to quickly build and
-            deploy full device configurations for Juniper vMX routers.
-          </p>
-          <p>
-            Automation within this repository can be executed in two different
-            ways: within a
-            <a
-              href="https://medium.com/fintechexplained/running-python-in-docker-container-58cda726d574"
-              >Docker container</a
-            >
-            or within a
-            <a href="https://python-poetry.org/docs/basic-usage/"
-              >Python virtual environment</a
-            >. The choice is yours as to which makes the most logical path.
-          </p>
-        </div>
-        <div class="second-column">
-          <div class="image-wrapper">
-            <img
-              src="{{config.site_url}}assets/images/invoke_configure.png"
-              alt=""
-              draggable="false"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="component-wrapper" style="display: block">
-        <h4>Explore code</h4>
-
-        <!-- Arch as code -->
-        <div class="responsive-grid">
-          <a class="card-wrapper" href="docs/automation/configure.py/">
-            <div class="card">
-              <div class="logo">
-                <span class="twemoji">
-                  {% include ".icons/octicons/file-code-24.svg" %}
-                </span>
-              </div>
-              <div class="card-content">
-                <h5>configure.py</h5>
-                <p>
-                  Use Juniper's PyEZ to template and push a full configuration
-                  to each of your network devices.
-                </p>
-              </div>
-            </div>
-          </a>
-
-          <!-- Networking -->
-          <a class="card-wrapper" href="docs/automation/generate.py/">
-            <div class="card">
-              <div class="logo">
-                <span class="twemoji">
-                  {% include ".icons/octicons/file-code-24.svg" %}
-                </span>
-              </div>
-              <div class="card-content">
-                <h5>generate.py</h5>
-                <p>
-                  Use Jinja2 to template local copies of our configurations.
-                </p>
-              </div>
-            </div>
-          </a>
-
-          <!-- Customize -->
-          <a class="card-wrapper" href="docs/automation/tools/">
-            <div class="card">
-              <div class="logo">
-                <span class="twemoji">
-                  {% include ".icons/octicons/tools-24.svg" %}
-                </span>
-              </div>
-              <div class="card-content">
-                <h5>Tools</h5>
-                <p>
-                  We have provided many tools to help get started with
-                  automation, get a full breakdown of how they work here.
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Operations -->
-    <div class="section follow">
-      <div class="component-wrapper">
-        <div class="first-column">
-          <h3>Get started with MPLS</h3>
-          <p>
-            BGP, MPLS, and routing instances are only part of the deployment of
-            a successful MPLS network. We have provided additional technical
-            details regarding the design of what is generated by our automation.
-          </p>
-        </div>
-        <div class="second-column">
-          <div class="image-wrapper">
-            <img
-              src="{{config.site_url}}assets/images/vlabs.png"
-              alt=""
-              draggable="false"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="component-wrapper" style="display: block">
-        <h4>Explore components</h4>
-
-        <!-- Tasks -->
-        <div class="responsive-grid">
-          <a class="card-wrapper" href="docs/network/ip/">
-            <div class="card">
-              <div class="logo">
-                <span class="twemoji">
-                  {% include ".icons/octicons/terminal-24.svg" %}
-                </span>
-              </div>
-              <div class="card-content">
-                <h5>IP Schema</h5>
-                <p>
-                  Understand how the IPv4 address schema for this lab is
-                  derived.
-                </p>
-              </div>
-            </div>
-          </a>
-
-          <a class="card-wrapper" href="docs/network/mpls/">
-            <div class="card">
-              <div class="logo">
-                <span class="twemoji">
-                  {% include ".icons/octicons/terminal-24.svg" %}
-                </span>
-              </div>
-              <div class="card-content">
-                <h5>MPLS</h5>
-                <p>
-                  Information pertaining to route distinguishers, labeling
-                  protocols, routing-instances, and any other component of an
-                  MPLS network.
-                </p>
-              </div>
-            </div>
-          </a>
-
-          <a class="card-wrapper" href="docs/network/routing/">
-            <div class="card">
-              <div class="logo">
-                <span class="twemoji">
-                  {% include ".icons/octicons/terminal-24.svg" %}
-                </span>
-              </div>
-              <div class="card-content">
-                <h5>Routing</h5>
-                <p>
-                  View routing protocols leveraged to deliver a Layer 3 VPN
-                  circuit across our MPLS backbone.
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 {% endblock %}
