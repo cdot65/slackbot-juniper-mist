@@ -1,4 +1,4 @@
 ---
 template: layouts/home.html
-title: Juniper PyEZ Create MPLS Network
+title: Juniper Mist Slack bot
 ---
