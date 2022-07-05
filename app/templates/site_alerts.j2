@@ -7,11 +7,19 @@ _Critical Issues_
 {% if each.severity == "critical" %}
 {# Rouge AP #}
 {% if each.type == "rogue_ap" %}
-:white_small_square: *Rogue AP* `{{ each.hostnames | join(' ') }}` is broadcasting _{{ each.ssids | join(', ') }}_
+:white_small_square: *Rogue AP* `{{ each.hostnames | join(' ') }}` is broadcasting `{{ each.ssids | join(', ') }}`
 {% endif %}
 {# Rouge Client #}
 {% if each.type == "rogue_client" %}
-:white_small_square: *Rouge Client*: `{{ each.hostnames | join(' ')  }}` MAC addresses _{{ each.macs | join(', ') }}_
+:white_small_square: *Rouge Client*: `{{ each.hostnames | join(' ')  }}` Client MAC addresses `{{ each.macs | join(', ') }}`
+{% endif %}
+{# DHCP failure #}
+{% if each.type == "infra_dhcp_failure" %}
+:white_small_square: *DHCP Failure*: `{{ each.hostnames | join(' ')  }}` Servers `{{ each.servers | join(', ') }}` VLANs `{{ each.vlans | join(', ') }}`
+{% endif %}
+{# DNS failure #}
+{% if each.type == "arp_failure" %}
+:white_small_square: *DNS Failure*: `{{ each.hostnames | join(' ')  }}` Servers `{{ each.servers | join(', ') }}` SSIDs `{{ each.ssids | join(', ') }}_ Clients _{{ each.macs | join(', ') }}`
 {% endif %}
 {% endif %}
 {% endfor %}
@@ -21,7 +29,25 @@ _Warning Issues_
 {% if each.severity == "warn" %}
 {# Chassis PoE #}
 {% if each.type == "sw_alarm_chassis_poe" %}
-:white_small_square: POE Issue: `{{ each.reasons | join(' ') }}`
+:white_small_square: *POE Issue*: `{{ each.reasons | join(' ') }}`
+{% endif %}
+{# Chassis Partition #}
+{% if each.type == "sw_alarm_chassis_partition" %}
+:white_small_square: *Disk Partition Issue*: `{{ each.hostnames | join(' ') }}` reporting `{{ each.reasons | join(' ') }}`
+{% endif %}
+{# Device Down #}
+{% if each.type == "device_down" %}
+:white_small_square: *Device Down*: `{{ each.hostnames | join(' ') }}` reported as down
+{% endif %}
+{% endif %}
+{% endfor %}
+
+_Informational_
+{% for each in data.results %}
+{% if each.severity == "info" %}
+{# BGP failure #}
+{% if each.type == "sw_bgp_neighbor_state_changed" %}
+:white_small_square: *BGP Failure*: `{{ each.hostnames | join(' ')  }}` Reasons `{{ each.reasons | join(', ') }}``
 {% endif %}
 {% endif %}
 {% endfor %}
