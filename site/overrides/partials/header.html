@@ -1,0 +1,68 @@
+<!-- Additional styles for landing page -->
+<style>
+  .md-header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    color: #fff;
+    background-color: #84b140;
+    box-shadow: 0 0 0.2rem transparent, 0 0.2rem 0.4rem transparent;
+  }
+</style>
+<!-- Application header -->
+<header class="md-header" data-md-component="header">
+  <!-- Top-level navigation -->
+  <nav
+    class="md-header__inner md-grid"
+    aria-label="{{ lang.t('header.title') }}"
+  >
+    <!-- Link to home -->
+    <a
+      href="{{ config.site_url }}"
+      title="{{ config.site_name | e }}"
+      class="md-header__button md-logo"
+      aria-label="{{ config.site_name }}"
+    >
+      <img
+        src="https://raw.githubusercontent.com/cdot65/juniper-mpls-l3vpn-demo/21794c999f67b65d38d7584385721a9ee16aaedc/assets/images/favicon.svg"
+      />
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+      {% include ".icons/material/menu.svg" %}
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis"> {{ config.site_name }} </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            {% if page and page.meta and page.meta.title %} {{ page.meta.title
+            }} {% else %} {{ page.title }} {% endif %}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button to open search dialogue -->
+    {% if "search" in config["plugins"] %}
+    <label class="md-header__button md-icon" for="__search">
+      {% include ".icons/material/magnify.svg" %}
+    </label>
+
+    <!-- Search interface -->
+    {% include "partials/search.html" %} {% endif %}
+
+    <!-- Repository containing source -->
+    {% if config.repo_url %}
+    <div class="md-header__source">{% include "partials/source.html" %}</div>
+    {% endif %}
+  </nav>
+</header>
